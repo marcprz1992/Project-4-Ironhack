@@ -81,7 +81,7 @@ def get_only_avg_negative_by_genre():
     return jsonify(esecuele.get_avg_negative_by_genre())
 
 # QUERY 10: Key average info by developer (searching for it)
-@app.route("/sql/developer/avginfo", )
+@app.route("/sql/<developer>/avginfo", )
 def get_only_avg_info_by_developer(developer):
     return jsonify(esecuele.get_avg_info_by_developer(developer))
 
@@ -95,11 +95,10 @@ def get_only_key_info_by_title():
 def get_only_all_titles_and_more_by_developer(developer):
     return jsonify(esecuele.get_all_titles_and_more_by_developer(developer))
 
-# Change that one as equal to above!!!
 # QUERY 13 Number of titles launched by searched developer by searched year
-#@app.route("/sql/developer/year", )
-#def get_only_all_titles_and_more_by_developer(developer,year):
-    return jsonify(esecuele.get_all_titles_and_more_by_developer(developer,year))    
+@app.route("/sql/<developer>/<year>", )
+def get_only_all_titles_and_more_by_developer_and_year(developer,year):
+    return jsonify(esecuele.get_all_titles_and_more_by_developer_and_year(developer,year))    
 
 # QUERY 14 Top 10 games launched in searched year by negativity
 @app.route("/sql/top10/<year>", ) 

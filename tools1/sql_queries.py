@@ -140,7 +140,7 @@ def get_all_titles_and_more_by_developer(developer):
     return df.to_dict(orient="records")
 
 # QUERY 13 Number of titles launched by searched developer by searched year
-def get_all_titles_and_more_by_developer(developer,year):
+def get_all_titles_and_more_by_developer_and_year(developer,year):
     query = f"""SELECT developer,COUNT(title) as 'Number of titles launched'
     FROM reviews
     WHERE release_date LIKE '%%{year}%%'
