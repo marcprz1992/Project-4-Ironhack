@@ -160,10 +160,10 @@ def get_top_ten_games_by_negativity_by_given_year(year):
     df = pd.read_sql_query(query, engine)
     return df.to_dict(orient="records")
 
-def insert_one_row (title, game_url, image_url, system, publisher, developer, genre, release_date, review, review_conclusion, rating, neg, neu, pos, compound, index_pandas):
+def insert_one_row (id,title, game_url, image_url, system, publisher, developer, genre, release_date, review, review_conclusion, rating, neg, neu, pos, compound, index_pandas):
     query = f"""INSERT INTO reviews
-     (id, title, game_url, image_url, system, publisher, developer, genre, release_date, review, review_conclusion, rating, neg, neu, pos, compound, index_pandas) 
-        VALUES ('{title}', '{game_url}','{image_url}','{system}','{publisher}','{developer}','{genre}','{release_date}','{review}','{review_conclusion}','{rating}','{neg}','{neu}','{pos}','{compound}','{index_pandas}');
+     (id, title, game_url, image_url, `system`, publisher, developer, genre, release_date, review, review_conclusion, rating, `neg`, neu, pos, compound, index_pandas) 
+        VALUES ('{id}','{title}', '{game_url}','{image_url}','{system}','{publisher}','{developer}','{genre}','{release_date}','{review}','{review_conclusion}',{rating},{neg},{neu},{pos},{compound},'{index_pandas}');
     """
     engine.execute(query)
     return f"Correctly introduced!"

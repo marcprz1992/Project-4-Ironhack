@@ -110,6 +110,7 @@ def get_only_top_ten_games_by_negativity_by_given_year(year):
 def try_post ():
     # Decoding params
     my_params = request.args
+    id = my_params["id"]
     title = my_params["title"]
     game_url = my_params["game_url"]
     image_url = my_params["image_url"]
@@ -128,7 +129,7 @@ def try_post ():
     index_pandas = my_params["index_pandas"]
 
     # Passing to my function: do the inserr
-    esecuele.insert_one_row(title, game_url, image_url, system, publisher, developer, genre, release_date, review, review_conclusion, rating, neg, neu, pos, compound, index_pandas)
+    esecuele.insert_one_row(id,title, game_url, image_url, system, publisher, developer, genre, release_date, review, review_conclusion, rating, neg, neu, pos, compound, index_pandas)
     return f"Query succesfully inserted"
 
 
